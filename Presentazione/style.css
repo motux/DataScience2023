@@ -1,0 +1,60 @@
+/* block quotes */
+blockquote {
+  background: #f9f9f9;
+  border-left: 5px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 1.5em;
+}
+
+/* scrolling */
+slides > slide {
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+
+/* hide page numbers */
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+
+.responsive{
+	max-width: 100%;
+	height: auto;
+	display: block;
+	}
+	
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+}
+
+.title-slide hgroup h1 {
+	color:#18a7f5;
+	padding-right: 2em;
+}
+
+ footer:after {
+    content: attr(label);
+    font-size: 12pt;
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+    line-height: 1.9;
+  }
+  
+.nofooter + footer { display: none;}
+
+.current[data-slide-num="9"]:not(.nobackground):before {background: none;}
+
+.current[data-slide-num="12"]:not(.nobackground):before {background: none;}
+
+.current[data-slide-num="13"]:not(.nobackground):before {background: none;}
+
+.current[data-slide-num="14"]:not(.nobackground):before {background: none;}
+
+.current[data-slide-num="15"]:not(.nobackground):before {background: none;}
+
+.current[data-slide-num="16"]:not(.nobackground):before {background: none;}
