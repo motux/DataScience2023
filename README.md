@@ -5,7 +5,7 @@ UNIUD Data Science 2023
 - Ho approfittato delle competenze acquisite durante il corso di Fondamenti di Scienza dei dati per analizzare le scatole vendute dalla LEGO® negli ultimi 10 anni
 - L'obiettivo è trovare dei criteri che mi aiutino a comprare le scatole commercializzate più convenienti in termini di prezzo e numero di pezzi
 
-#ENGLISH VERSION - DataScience2023
+# ENGLISH VERSION - DataScience2023
 Why this project.
 In my spare time I enjoy building with LEGO®, I am an enthusiast, AFOL - Adult Fan of LEGO
 I took advantage of the skills I learned in the Fundamentals of Data Science course to analyze the boxes sold by LEGO® over the past 10 years
