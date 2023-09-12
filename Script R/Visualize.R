@@ -13,11 +13,6 @@ rangeYears = 10
 currentDate = Sys.Date()
 currentYear = as.numeric(format(currentDate,'%Y'))
 firstYear = currentYear - rangeYears - 1;
-#Numero di utenti registrati su Brickset
-userOnBrickset = 306659
-#Soglia percentuale degli utenti che hanno manifestato la preferenza
-# 5: 5 utenti su 100 hanno manifestato il desiderio di averlo o lo hanno già acquistato
-threshold_perc = 5
 
 #Importazione CSV con tutti i set
 tb_sets_PP = as_tibble(read.csv("tot_tibble_sets.csv"),header = TRUE,sep = ";",dec = ".",stringsAsFactors = TRUE)
@@ -82,13 +77,13 @@ ggplot(data = tb_sets_statsbyYear, mapping = aes(x = as.integer(year), y = avg_p
   ) +
   scale_x_continuous(labels = label_number(accuracy = 1), breaks = seq(firstYear, currentYear, 1)) 
 
-#DOMANDA 1 - Andamento della media del numero di scatole commercializzate negli ultimi 10 anni (rangeYears)
+#DOMANDA 1 - Andamento del numero di scatole commercializzate negli ultimi 10 anni (rangeYears)
 
 ggplot(data = tb_sets_statsbyYear, mapping = aes(x = as.integer(year), y = n)) +
   geom_point() + 
   geom_smooth()+
   labs(
-    title = "Grafico sulla media del numero di scatole commercializzate per anno (year)",
+    title = "Grafico sul numero di scatole commercializzate per anno (year)",
     y = "Media numero di scatole",
     x = "Anno"
   ) +
@@ -101,7 +96,7 @@ ggplot(data = tb_sets_PP) +
   geom_boxplot(data=tb_sets_PP[tb_sets_PP$theme %in% tb_recurrent_theme_sets$theme,],
                aes(x = reorder(theme, retailPrice, FUN = median), y = retailPrice),fill="#18a7f5")+
   labs(
-    title = "Grafico ordinato sulla linea di prodotto in base alla media del prezzo di vendita nell'area euro",
+    title = "Grafico ordinato sulla linea di prodotto del prezzo di vendita nell'area euro",
     subtitle = "Attenzione! l'asse y del prezzo di vendita è in scala logaritmica",
     y = "Prezzo di vendita",
     x = "Linea di prodotto",
@@ -118,7 +113,7 @@ ggplot(data = tb_sets_PP) +
   geom_boxplot(data=tb_sets_PP[tb_sets_PP$theme %in% tb_recurrent_theme_sets$theme,],
                aes(x = reorder(theme, pieces, FUN = median), y = pieces),fill="#18a7f5")+
   labs(
-    title = "Grafico ordinato sulla linea di prodotto in base alla media del numero di pezzi",
+    title = "Grafico ordinato sulla linea di prodotto del numero di pezzi",
     subtitle = "Attenzione! l'asse y del numero di pezzi è in scala logaritmica",
     y = "Numero di pezzi",
     x = "Linea di prodotto",
@@ -180,7 +175,7 @@ ggplot(data = tb_MediaPPYear_reccurent_theme_sets, mapping = aes(x = year, y = a
   geom_label_repel(aes(label = paste(theme,":",format(round(avg_pp, 3), nsmall = 3),"€")),
                    data = tb_MediaPPYear_reccurent_theme_sets %>% filter(
                      (year %in% c(firstYear +1,firstYear +(rangeYears / 2),currentYear-1) & avg_pp > 0.18) |
-                    (year %in% c(firstYear +1,firstYear +(rangeYears / 2),currentYear-1) & avg_pp < 0.10)),
+                       (year %in% c(firstYear +1,firstYear +(rangeYears / 2),currentYear-1) & avg_pp < 0.10)),
                    box.padding   = 0.35, 
                    point.padding = 0.5,
                    segment.color = 'grey50')+
@@ -352,15 +347,3 @@ nb_cm
 
 # Model Evaluation
 confusionMatrix(nb_cm, positive = "TRUE")
-
-
-
-
-
-
-
-
-
-
-
-
